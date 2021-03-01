@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Roll The Dice</title>
-   </head>
-   <body>
-      <h1>Roll The Dice</h1>
-   </body>
+<head>
+	<title>Roll The Dice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!--link rel="stylesheet" href="DiceRollar.css"-->
+	<style type="text/css">
+		img{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 500px;
+			height: 400px;
+		}
+		.button{
+			width: 500px;
+			height: 50px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.showContent{
+			margin-top: 2%;
+		}
+	</style>
+</head>
+<body style="background-color: black;">
+	<div class="container-fluid">
+		<button class="btn btn-success showContent" style="padding: 15px 30px;">Show/Hide DiceRollar</button>
+		<div class="container fluid" style="display: none;margin-top: 5%;">
+			<img src="dice.jpg" class="dice">
+			<center><button class="btn btn-danger button">Roll The Dice</button></center>
+		</div>
+		<!--div class="container-fluid fluid">
+			<center><button class="btn btn-block btn-primary button">Roll The Dice</button></center>
+		</div-->
+	</div>
+</body>
+<script>
+	var num = 0;
+	var arr = ["dice.jpg","1.png","2.png","3.png","4.png","5.png","6.jpg"];
+	$(document).ready(function(){
+		$(".showContent").click(function(){
+			$(".fluid").toggle();
+			$(".container-fluid").css("margin-top","0px");
+			$(".showContent").css("margin-left","0px");
+		});
+		$(".button").click(function(){
+			num = Math.floor(Math.random() * 6) + 1;
+			//console.log(num);
+			/*if(record != "."+num.toString()){
+			    $(record).hide();
+			}
+			$("."+num.toString()).show();
+			record = "." + num.toString();*/
+			$("img").attr("src",arr[num]);
+		});
+	});
+</script>
 </html>
